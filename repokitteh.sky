@@ -10,6 +10,7 @@ def on_issue_comment(comment):
   
   if cmd == '/a':
     github_pr_request_review(*parts[1:])
+    error('x')
   elif cmd == '/r':
     github_pr_remove_reviewer(*parts[1:])
   elif cmd == '/l':
