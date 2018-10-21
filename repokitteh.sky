@@ -1,12 +1,17 @@
+load("text", "shellsplit")
+
 use("github.com/softkitteh/repokitteh-modules/kitteh.sky")
 use("github.com/softkitteh/repokitteh-modules/doge.sky")
 use("github.com/softkitteh/repokitteh-modules/assign.sky")
 
 def on_issue_comment(comment):
-  if comment == '/a':
-    github_pr_request_review(comment[3:])
-  elif comment == '/r':
-    github_pr_remove_reviewer(comment[3:])
-  elif comment == '/l':
+  parts = shellsplit(comment.split('\n')[0])
+  cmd = parts[0]
+  
+  if cmd == '/a':
+    github_pr_request_review(parts[1:])
+  elif cmd == '/r':
+    github_pr_remove_reviewer(parts[1:])
+  elif cmd == '/l':
     rs = github_pr_reviewers()
     github_issue_create_comment(' '.join(rs))
