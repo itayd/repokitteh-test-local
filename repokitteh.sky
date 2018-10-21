@@ -4,9 +4,9 @@ use("github.com/softkitteh/repokitteh-modules/assign.sky")
 
 def on_issue_comment(comment):
   if comment == '/a':
-    github_pr_request_review('itayd')
+    github_pr_request_review(comment[3:])
   elif comment == '/r':
-    github_pr_remove_reviewer('itayd')
+    github_pr_remove_reviewer(comment[3:])
   elif comment == '/l':
     rs = github_pr_reviewers()
     github_issue_create_comment(' '.join(rs))
