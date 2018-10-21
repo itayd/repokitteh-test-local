@@ -13,7 +13,7 @@ def on_issue_comment(comment):
   elif cmd == '/r':
     github_pr_remove_reviewer(*parts[1:])
   elif cmd == '/c':
-    github_repo_check_collaborator(*parts[1:])
+   github_issue_create_comment(str(github_repo_check_collaborator(*parts[1:])))
   elif cmd == '/l':
     rs = github_pr_reviewers()
     github_issue_create_comment(' '.join(rs))
