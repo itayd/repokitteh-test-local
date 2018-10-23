@@ -2,3 +2,5 @@ use("github.com/softkitteh/repokitteh-modules/kitteh.sky")
 use("github.com/softkitteh/repokitteh-modules/doge.sky")
 use("github.com/softkitteh/repokitteh-modules/assign.sky")
 
+def on_command(command):
+  print(command)
