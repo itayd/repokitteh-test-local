@@ -7,8 +7,8 @@ def on_command(command):
     ls = github_issue_labels()
     github_issue_create_comment('%s' % ls)
     if 'x' in ls:
-      github_issue_unlabel('y')
-      github_issue_label('x')
-    else:
-      github_issue_unlabel('x')
       github_issue_label('y')
+      github_issue_unlabel('x')
+    else:
+      github_issue_label('x')
+      github_issue_unlabel('y')
