@@ -4,6 +4,11 @@ use("github.com/softkitteh/repokitteh-modules/assign.sky")
 
 def on_command(command):
   if command.name == 'x':
-    github_issue_label('x')
-    github_issue_label('y')
-    
+    ls = github_issue_labels()
+    github_issue_create_comment('%s' % ls)
+    if 'x' in ls:
+      github_issue_unlabel('y')
+      github_issue_label('x')
+    else:
+      github_issue_unlabel('x')
+      github_issue_label('y')
