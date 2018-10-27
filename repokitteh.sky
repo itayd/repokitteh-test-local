@@ -2,3 +2,7 @@ use("github.com/softkitteh/repokitteh-modules/kitteh.sky")
 use("github.com/softkitteh/repokitteh-modules/doge.sky")
 use("github.com/softkitteh/repokitteh-modules/assign.sky")
 use("github.com/softkitteh/repokitteh-modules/review.sky")
+
+def on_pull_request(action):
+  if action == 'labeled':
+    github_issue_create_comment('labeled')
